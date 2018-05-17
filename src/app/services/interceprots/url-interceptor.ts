@@ -15,7 +15,7 @@ export class UrlInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    if (!request.url.startsWith(this.url)) {
+    if (!request.url.startsWith('.')) {
       request = request.clone({ url: `${this.url}${request.url}` });
     }
     return next.handle(request);

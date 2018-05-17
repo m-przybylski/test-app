@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'byt-password',
@@ -8,9 +9,26 @@ import { Router } from '@angular/router';
   styles: []
 })
 export class PasswordComponent {
-  constructor(private router: Router, private auth: AuthService) {}
+  public invalidPassword = false;
+  private userName: string;
+  constructor(
+    private router: Router,
+    private user: UserService,
+    private auth: AuthService,
+    activatedRoute: ActivatedRoute
+  ) {
+    this.userName = activatedRoute.snapshot.paramMap.get('userName');
+  }
 
   login(password: string) {
+    if (
+      typeof this.user.users.find(
+        user => user.user === this.userName && user.password === password
+      ) === 'undefined'
+    ) {
+      this.invalidPassword = true;
+      return;
+    }
     this.auth.isAuth = true;
     this.router.navigate(['/']);
   }

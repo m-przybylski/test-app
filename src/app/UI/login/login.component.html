@@ -1,2 +1,5 @@
 <input type="text" #user>
-<button routerLink="{{ '/login/' + user.value }}">Next</button>
+<button (click)="tryLogin(user.value)">Next</button>
+<div class="error" *ngIf="invalidUser">
+  <span>User does not exits</span>
+</div>

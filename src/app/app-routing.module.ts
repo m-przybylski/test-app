@@ -5,6 +5,7 @@ import { PlayerComponent } from './UI/player/player.component';
 import { LoginComponent } from './UI/login/login.component';
 import { PasswordComponent } from './UI/password/password.component';
 import { AuthService } from './services/auth.service';
+import { UserService } from './services/user.service';
 
 const routes: Routes = [
   {
@@ -13,8 +14,12 @@ const routes: Routes = [
     canActivate: ['canActivateUser'],
     pathMatch: 'full'
   },
-  { path: 'login', component: LoginComponent },
-  { path: 'login/:userName', component: PasswordComponent },
+  { path: 'login', component: LoginComponent, canActivate: [UserService] },
+  {
+    path: 'login/:userName',
+    component: PasswordComponent,
+    canActivate: [UserService]
+  },
   {
     path: ':videoId',
     component: PlayerComponent,
@@ -31,7 +36,7 @@ const redirecter = (auth: AuthService, router: Router) => () => {
 };
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { enableTracing: true })],
+  imports: [RouterModule.forRoot(routes)],
   providers: [
     {
       provide: 'canActivateUser',
