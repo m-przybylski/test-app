@@ -1,3 +1,8 @@
-<input type='text' #input>
+<input type='text' #input value='borys'>
 <button (click)='search(input.value)'>Search</button>
-{{ searchResult | async | json }}
+<a>
+  <div *ngFor='let result of searchResult | async' [routerLink]="[result.id.videoId]">
+    <img [src]="result.snippet.thumbnails.default.url">
+    <span>{{result.snippet.title}}</span>
+  </div>
+</a>
