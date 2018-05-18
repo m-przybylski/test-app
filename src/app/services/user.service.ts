@@ -54,7 +54,7 @@ export class UserService implements CanActivate {
     return this.getUsersFromCache();
   }
   private getUsersFromHttp(): Promise<UserData[]> {
-    return this.http.get<UserData[]>('./assets/users.json').toPromise();
+    return this.http.get<UserData[]>('./assets/database.json').toPromise();
   }
   private getUsersFromCache(): UserData[] {
     return this.users;

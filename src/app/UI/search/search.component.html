@@ -1,6 +1,6 @@
 <div class="search">
   <section class="search-section">
-    <input type="text" #input value="borys" (keydown.enter)="search(input.value)" autofocus>
+    <input type="text" #input (keydown.enter)="search(input.value)" autofocus>
     <button (click)="search(input.value)">Search</button>
   </section>
   <div class='video-list'>
