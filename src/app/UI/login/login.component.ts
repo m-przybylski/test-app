@@ -4,8 +4,7 @@ import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'byt-login',
-  templateUrl: './login.component.html',
-  styles: []
+  templateUrl: './login.component.html'
 })
 export class LoginComponent {
   public invalidUser = false;

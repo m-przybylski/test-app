@@ -5,8 +5,7 @@ import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'byt-password',
-  templateUrl: './password.component.html',
-  styles: []
+  templateUrl: './password.component.html'
 })
 export class PasswordComponent {
   public invalidPassword = false;

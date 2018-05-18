@@ -1,1 +1,12 @@
-<iframe width="420" height="315" [src]="videoUrl"></iframe>
+<div class="player-layout">
+  <iframe class="player" width="640" height="360" [src]="videoUrl"></iframe>
+  <section class="video-detail" *ngIf="(videoDetail$ | async) as video">
+    <div class="video-detail-title">{{video.title}}
+      <button (click)="toggleState()">Show</button>
+    </div>
+    <div class="video-detail-tags">
+      <span class="video-detail-tag" *ngFor="let tag of video.tags">{{tag}}</span>
+    </div>
+    <div class="video-detail-description" [@hide]='state'>{{video.description}}</div>
+  </section>
+</div>

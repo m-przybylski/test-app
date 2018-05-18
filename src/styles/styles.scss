@@ -121,3 +121,32 @@ byt-password {
     margin-top: 20px;
   }
 }
+
+.player-layout {
+  @extend %flex-column;
+  min-height: 100%;
+}
+.player {
+  padding: 20px;
+}
+.video-detail {
+  padding: 20px;
+  &-title {
+    font-size: 1.4em;
+    font-weight: 700;
+  }
+  &-description {
+    overflow: hidden;
+  }
+  &-tags {
+    @extend %flex-row;
+  }
+  &-tag {
+    margin-right: 5px;
+    padding: 5px 10px;
+    border: 2px solid $primary-strong;
+    background-color: $accent;
+    color: $accent-text;
+    border-radius: 4px;
+  }
+}

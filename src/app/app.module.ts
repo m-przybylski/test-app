@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,7 +20,12 @@ import { ApiKeyInterceptor } from './services/interceprots/api-key-interceptor';
     LoginComponent,
     PasswordComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule
+  ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: UrlInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ApiKeyInterceptor, multi: true }

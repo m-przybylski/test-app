@@ -5,8 +5,7 @@ import { SearchResultItem } from '../../interfaces/search-result';
 
 @Component({
   selector: 'byt-search',
-  templateUrl: './search.component.html',
-  styles: []
+  templateUrl: './search.component.html'
 })
 export class SearchComponent {
   public searchTerm: string;
