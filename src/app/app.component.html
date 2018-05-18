@@ -1,8 +1,17 @@
-<div class='main-layout'>
+<div class="main-layout">
   <header>
-
+    <span class="spacer"></span>
+    <span *ngIf="user; else emptyUser" class="logo">Better {{user}}'s YouTube</span>
+    <span class="placeholder">
+      <button *ngIf="user" (click)="logout()">Logout</button>
+    </span>
   </header>
-  <section class='main-section'>
+  <section class="main-section">
     <router-outlet></router-outlet>
   </section>
 </div>
+
+
+<ng-template #emptyUser>
+  <span>Welcome to Better YouTube please login</span>
+</ng-template>

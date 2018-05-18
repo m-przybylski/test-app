@@ -1,5 +1,7 @@
-<input type="text" #user>
-<button (click)="tryLogin(user.value)">Next</button>
-<div class="error" *ngIf="invalidUser">
-  <span>User does not exits</span>
+<div class="cred-container">
+  <input type="text" #user>
+  <button type="submit" (click)="tryLogin(user.value)">Next</button>
+  <div class="error" *ngIf="invalidUser">
+    <span>User does not exits</span>
+  </div>
 </div>

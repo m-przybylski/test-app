@@ -11,7 +11,7 @@ const routes: Routes = [
   {
     path: '',
     component: SearchComponent,
-    canActivate: ['canActivateUser'],
+    // canActivate: ['canActivateUser'],
     pathMatch: 'full'
   },
   { path: 'login', component: LoginComponent, canActivate: [UserService] },
@@ -22,8 +22,8 @@ const routes: Routes = [
   },
   {
     path: ':videoId',
-    component: PlayerComponent,
-    canActivate: ['canActivateUser']
+    component: PlayerComponent
+    // canActivate: ['canActivateUser']
   }
 ];
 
