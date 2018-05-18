@@ -1,8 +1,12 @@
-<input type='text' #input value='borys'>
-<button (click)='search(input.value)'>Search</button>
-<a>
-  <div *ngFor='let result of searchResult | async' [routerLink]="[result.id.videoId]">
-    <img [src]="result.snippet.thumbnails.default.url">
-    <span>{{result.snippet.title}}</span>
+<div class="search">
+  <section class="search-section">
+    <input type="text" #input value="borys" (keydown.enter)="search(input.value)">
+    <button (click)="search(input.value)">Search</button>
+  </section>
+  <div class='video-list'>
+    <a *ngFor="let result of searchResult | async" class="video-tile" [routerLink]="[result.id.videoId]">
+      <img class="video-tile-image" [src]="result.snippet.thumbnails.default.url">
+      <span class="video-tile-title">{{result.snippet.title}}</span>
+    </a>
   </div>
-</a>
+</div>
