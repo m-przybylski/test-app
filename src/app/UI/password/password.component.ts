@@ -21,15 +21,14 @@ export class PasswordComponent {
   }
 
   login(password: string) {
-    if (
-      typeof this.user.users.find(
-        user => user.user === this.userName && user.password === password
-      ) === 'undefined'
-    ) {
-      this.invalidPassword = true;
-      return;
-    }
-    this.auth.isAuth = true;
-    this.router.navigate(['/']);
+    this.user
+      .isValidUser(this.userName, password)
+      .then(() => {
+        this.auth.loginUser(this.userName);
+        this.router.navigate(['/']);
+      })
+      .catch(() => {
+        this.invalidPassword = true;
+      });
   }
 }
