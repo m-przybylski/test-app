@@ -1,12 +1,14 @@
-<div class="player-layout">
-  <iframe class="player" width="640" height="360" [src]="videoUrl"></iframe>
-  <section class="video-detail" *ngIf="(videoDetail$ | async) as video">
-    <div class="video-detail-title">{{video.title}}
-      <button (click)="toggleState()">Show</button>
-    </div>
-    <div class="video-detail-tags">
-      <span class="video-detail-tag" *ngFor="let tag of video.tags">{{tag}}</span>
-    </div>
-    <div class="video-detail-description" [@hide]='state'>{{video.description}}</div>
-  </section>
+<div class="player-layout" *ngIf="(videoDetail$ | async) as video">
+  <div class="player-layout-left">
+    <iframe class="player" width="640" height="360" [src]="videoUrl"></iframe>
+    <section class="video-detail">
+      <div class="video-detail-title">{{video.title}}</div>
+      <div class="video-detail-tags">
+        <span class="video-detail-tag" *ngFor="let tag of video.tags">{{tag}}</span>
+      </div>
+    </section>
+  </div>
+  <div class="player-layout-right">
+    <div class="video-detail-description">{{video.description}}</div>
+  </div>
 </div>

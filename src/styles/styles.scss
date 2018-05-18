@@ -123,15 +123,20 @@ byt-password {
 }
 
 .player-layout {
-  @extend %flex-column;
+  @extend %flex-row;
   min-height: 100%;
-}
-.player {
-  padding: 20px;
+  &-left {
+    padding: 20px;
+    @extend %flex-column;
+  }
+  &-right {
+    padding: 20px;
+    @extend %flex-column;
+  }
 }
 .video-detail {
-  padding: 20px;
   &-title {
+    margin: 10px 0;
     font-size: 1.4em;
     font-weight: 700;
   }
@@ -140,9 +145,12 @@ byt-password {
   }
   &-tags {
     @extend %flex-row;
+    justify-content: center;
+    flex-wrap: wrap;
   }
   &-tag {
     margin-right: 5px;
+    margin-top: 5px;
     padding: 5px 10px;
     border: 2px solid $primary-strong;
     background-color: $accent;
