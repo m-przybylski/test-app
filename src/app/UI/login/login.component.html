@@ -1,5 +1,5 @@
 <div class="cred-container">
-  <input type="text" #user>
+  <input type="text" #user (keydown.enter)="tryLogin(user.value)" autofocus>
   <button type="submit" (click)="tryLogin(user.value)">Next</button>
   <div class="error" *ngIf="invalidUser">
     <span>User does not exits</span>
