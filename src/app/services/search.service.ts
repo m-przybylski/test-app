@@ -2,8 +2,8 @@ import { Injectable, InjectionToken, Inject } from '@angular/core';
 import { BASE_API } from '../tokens';
 import { HttpClient } from '@angular/common/http';
 import { SearchResult, SearchResultItem } from '../interfaces/search-result';
-import { pluck, tap, switchMap } from 'rxjs/operators';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { pluck, tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +12,6 @@ export class SearchService {
   constructor(private http: HttpClient) {}
   readonly api = 'search?part=snippet&maxResults=25';
   private nextPageToken: string;
-  private _videos: SearchResultItem[] = [];
-  private _videos$: BehaviorSubject<SearchResultItem[]> = new BehaviorSubject<
-    SearchResultItem[]
-  >([]);
 
   searchResult(term: string): Observable<SearchResultItem[]> {
     return this.http
