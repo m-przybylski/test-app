@@ -4,7 +4,7 @@
     <button (click)="search(input.value)">Search</button>
   </section>
   <div class='video-list'>
-    <a *ngFor="let result of searchResult | async" class="video-tile" [routerLink]="[result.id.videoId]">
+    <a *ngFor="let result of videos" class="video-tile" [routerLink]="[result.id.videoId]">
       <img class="video-tile-image" [src]="result.snippet.thumbnails.default.url">
       <span class="video-tile-title">{{result.snippet.title}}</span>
     </a>

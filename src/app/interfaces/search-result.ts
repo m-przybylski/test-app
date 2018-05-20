@@ -1,4 +1,5 @@
 export interface SearchResult {
+  nextPageToken: string;
   items: SearchResultItem[];
 }
 
